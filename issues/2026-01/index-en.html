@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Scientometric Perspective — RUDN · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600;700;800&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../../css/style.css">
+
+<script>const LANG = 'en';</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+
+<script src="data-en.js"></script>
+<script src="../../js/app.js" defer></script>
+</head>
+<body>
+
+<a href="../../index.html" class="home-btn" title="Back to Archive">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+  Archive
+</a>
+
+<a href="index.html" class="lang-toggle" title="Переключить на русский">RU</a>
+
+<button class="theme-toggle" id="themeBtn" onclick="toggleTheme()" title="Toggle Theme">
+  <svg id="icon-sun" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+  <svg id="icon-moon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+</button>
+
+<div class="hero">
+  <div class="hero-badge">Appendix to the digest of the RUDN scientific management · 2026 · Jan-Feb</div>
+  <h1>SCIENTOMETRIC<br>PERSPECTIVE</h1>
+  <div class="hero-sub">CSRM ANALYTICAL DASHBOARD</div>
+</div>
+
+<div class="nav-wrap">
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('frontiers',this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:6px"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>Research Frontiers
+    </button>
+    <button class="nav-tab" onclick="switchTab('sdg',this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:6px"><path d="M12 22C6.48 22 2 17.52 2 12S6.48 2 12 2s10 4.48 10 10-4.48 10-10 10z"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>SDGs
+    </button>
+    <button class="nav-tab" onclick="switchTab('subjects',this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:6px"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Science at RUDN
+    </button>
+    <button class="nav-tab" onclick="switchTab('tanzania',this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:6px"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 14.83l4.24 4.24M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/></svg>Collaborations
+    </button>
+    <button class="nav-tab" onclick="switchTab('rid',this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:-3px;margin-right:6px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Intellectual Property
+    </button>
+  </div>
+</div>
+
+<main>
+
+<div id="tab-frontiers" class="tab-section active">
+  <div class="section-intro">
+    <div class="section-intro-label">Section 1 · Global Scientometrics</div>
+    <h2>Where is the science of tomorrow born?</h2>
+    <p>Research frontiers are clusters of breakthrough publications that determine the vector of global scientific development. This section presents the 10 most active directions according to Scopus data, their global reach, and the contribution of Russian scientists. Analyzing these frontiers allows RUDN to strategically plan its research.</p>
+  </div>
+  <div class="section-title">Top 10 Global Research Frontiers</div>
+  <div class="section-sub">World vs. Russia · Scopus Data</div>
+  <div class="dcard" style="padding:1rem;">
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Topic</th>
+          <th style="text-align:center">Percentile</th>
+          <th class="metric-group">Publications<br><span style="font-size:.65rem;font-weight:500;text-transform:none">World / RU</span></th>
+          <th class="metric-group">FWCI<br><span style="font-size:.65rem;font-weight:500;text-transform:none">World / RU</span></th>
+          <th>RU Share</th>
+        </tr></thead>
+        <tbody id="frontiers-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="tab-sdg" class="tab-section">
+  <div class="section-intro">
+    <div class="section-intro-label">Section 2 · Sustainable Development Goals</div>
+    <h2>RUDN's contribution to the UN global agenda</h2>
+    <p>The UN has defined 17 Sustainable Development Goals (SDGs) as a benchmark for science and policy until 2030. The chart below reflects how highly cited RUDN publications are in each of the 17 directions on the FWCI (Field-Weighted Citation Impact) scale. A value above 1.0 means that the university's publications are cited more often than the world average in a given field. Click on a sector to see details.</p>
+  </div>
+  <div class="section-title">RUDN Publications — SDG Breakdown</div>
+  <div class="section-sub">Scopus Data · 2022–2025</div>
+  <div class="sdg-layout">
+    <div class="dcard" style="padding:1.4rem;margin-bottom:0">
+      <h3 style="margin-bottom:0.5rem">FWCI Diagram by Sectors</h3>
+      <div class="chart-wrapper"><canvas id="sdgChart"></canvas></div>
+    </div>
+    <div class="sticky-panel dcard" style="padding:1.4rem;background:var(--surface2);">
+      <div id="details-title">Click on a sector</div>
+      <div id="details-content">
+        <div class="metric-block">
+          <div class="metric-lbl">Select an SDG</div>
+          <div style="color:var(--muted);font-size:.82rem;line-height:1.6;font-weight:500;">Click on any sector to view detailed information.</div>
+        </div>
+      </div>
+      <div class="sdg-hint">* Sector size is based on the <b>FWCI</b> indicator<br>** Scopus data (February 18, 2026)</div>
+    </div>
+  </div>
+  <div class="dcard" style="margin-top:1.5rem;padding:1rem;">
+    <h3 style="padding:0.5rem 0.5rem 0;">Table of All SDGs</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>SDG</th>
+          <th style="text-align:right">FWCI</th>
+          <th style="text-align:right">Publications</th>
+          <th style="text-align:right">Citations</th>
+        </tr></thead>
+        <tbody id="sdg-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="tab-subjects" class="tab-section">
+  <div class="section-intro">
+    <div class="section-intro-label">Section 3 · Internal Analytics</div>
+    <h2>RUDN Publication Profile: Strengths and Growth Points</h2>
+    <p>Different scientific fields make an unequal contribution to the university's reputation. The graph below compares the volume of publications and their international impact (FWCI) across 11 subject areas of the Times Higher Education classifier. The dotted line corresponds to the world average citation level (1.0): areas above the line demonstrate the outstanding global impact of RUDN research.</p>
+  </div>
+  <div class="section-title">RUDN Scientific Publications (THE Ranking Classifier)</div>
+  <div class="section-sub">Comparison of publication activity and FWCI across 11 subject areas · 2022–2025</div>
+  <div class="dcard">
+    <h3 style="margin-bottom:0">Publications and FWCI by Subjects</h3>
+    <div id="combo-chart-container"></div>
+    <div class="legend-row">
+      <span><span class="legend-dot" style="background:rgba(59,130,246,0.8)"></span>Number of publications (left scale)</span>
+      <span><span class="legend-dot" style="background:var(--accent2)"></span>FWCI citation index (right scale)</span>
+    </div>
+  </div>
+  <div class="dcard" style="margin-top:0;padding:1rem;">
+    <h3 style="padding:0.5rem 0.5rem 0;">Table by Subject Areas</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr>
+          <th>Subject Area</th>
+          <th style="text-align:center">Publications</th>
+          <th style="text-align:center">FWCI</th>
+          <th style="text-align:center">Citations</th>
+        </tr></thead>
+        <tbody id="subjects-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="tab-tanzania" class="tab-section">
+  <div class="section-intro">
+    <div class="section-intro-label">Section 4 · International Collaborations</div>
+    <h2>Tanzania: A Promising Partner for RUDN</h2>
+    <p>International cooperation is a key driver of citation growth. In September 2025, RUDN hosted a meeting with the Minister of Natural Resources and Tourism of the United Republic of Tanzania. Tanzania is among the actively developing scientific ecosystems in Africa: in 2025, scientists of the country published almost 4,000 papers in Scopus. Three main directions — ecology, natural resources, and tourism — correlate well with RUDN's research priorities, opening up specific opportunities for joint projects and grant applications.</p>
+  </div>
+  <div class="section-title">Science in Tanzania 2025</div>
+  <div class="section-sub">Publication profile and leading scientists</div>
+  <div class="grid-responsive grid-cols-2" style="margin-bottom:1.5rem">
+    <div class="dcard" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;margin-bottom:0">
+      <div style="font-family:'Unbounded',sans-serif;font-size:3.5rem;font-weight:800;color:var(--accent)">3&thinsp;947</div>
+      <div style="color:var(--muted);font-size:.82rem;margin-top:.5rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;">publications by Tanzanian scientists</div>
+    </div>
+    <div class="dcard" style="margin-bottom:0">
+      <h3>Distribution by Direction</h3>
+      <div style="position:relative;height:250px"><canvas id="directionsChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="dcard" style="background:var(--surface2);">
+    <h3>Research Profile by Direction</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;box-shadow:0 2px 10px var(--shadow);">
+        <div style="font-weight:800;color:var(--accent2);margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+            Ecology
+        </div>
+        <ul style="list-style:none;font-size:.85rem;color:var(--muted);line-height:2.1;font-weight:500;">
+          <li>✓ Wildlife conservation</li>
+          <li>✓ Impact of climate change</li>
+          <li>✓ Water resources management</li>
+          <li>✓ One Health ecosystems</li>
+          <li>✓ Vector-borne diseases</li>
+        </ul>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;box-shadow:0 2px 10px var(--shadow);">
+        <div style="font-weight:800;color:#3B82F6;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            Natural Resources
+        </div>
+        <ul style="list-style:none;font-size:.85rem;color:var(--muted);line-height:2.1;font-weight:500;">
+          <li>✓ Geology and mining</li>
+          <li>✓ Oil and gas engineering</li>
+          <li>✓ Resource monitoring (sensors)</li>
+          <li>✓ Sustainable land use</li>
+        </ul>
+      </div>
+      <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.2rem;box-shadow:0 2px 10px var(--shadow);">
+        <div style="font-weight:800;color:#F59E0B;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 20 10 4"/><path d="m5 20 9-16"/><path d="M3 20h18"/><path d="m12 15-3 5"/><path d="m12 15 3 5"/></svg>
+            Tourism
+        </div>
+        <ul style="list-style:none;font-size:.85rem;color:var(--muted);line-height:2.1;font-weight:500;">
+          <li>✓ Sustainable tourism</li>
+          <li>✓ Impact of COVID-19 on the industry</li>
+          <li>✓ Ecotourism in national parks</li>
+          <li>✓ Cultural heritage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="dcard" style="margin-top:0">
+    <h3>Leading Scientists by Direction</h3>
+    <div style="display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:1.5rem;flex-wrap:wrap">
+      <button class="tz-tab-btn active" onclick="showTzTab('ecology',this)">Ecology</button>
+      <button class="tz-tab-btn"        onclick="showTzTab('resources',this)">Natural Resources</button>
+      <button class="tz-tab-btn"        onclick="showTzTab('tourism',this)">Tourism</button>
+    </div>
+
+    <div id="tz-ecology" class="tz-tab-content active">
+      <div style="background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Machunda, Revocatus L.</b><span style="background:rgba(16,185,129,0.15);color:var(--accent2);padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 26</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">Nelson Mandela African Inst. of Science &amp; Tech</div>
+        <div style="font-size:.78rem;color:var(--accent2);border-top:1px solid rgba(16,185,129,0.15);padding-top:.6rem;font-weight:600">Environmental engineering, materials science</div>
+      </div>
+      <div style="background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Rwiza, Mwemezi J.</b><span style="background:rgba(16,185,129,0.15);color:var(--accent2);padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 19</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">Nelson Mandela African Inst. of Science &amp; Tech</div>
+        <div style="font-size:.78rem;color:var(--accent2);border-top:1px solid rgba(16,185,129,0.15);padding-top:.6rem;font-weight:600">Water treatment, environmental remediation</div>
+      </div>
+      <div style="background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Ripanda, Asha S.</b><span style="background:rgba(16,185,129,0.15);color:var(--accent2);padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 12</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">University of Dodoma</div>
+        <div style="font-size:.78rem;color:var(--accent2);border-top:1px solid rgba(16,185,129,0.15);padding-top:.6rem;font-weight:600">Ecology of mining regions</div>
+      </div>
+    </div>
+
+    <div id="tz-resources" class="tz-tab-content">
+      <div style="background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Kivevele, Thomas</b><span style="background:rgba(59,130,246,0.15);color:#3B82F6;padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 20</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">Nelson Mandela African Inst.</div>
+        <div style="font-size:.78rem;color:#3B82F6;border-top:1px solid rgba(59,130,246,0.15);padding-top:.6rem;font-weight:600">Renewable energy, biofuels</div>
+      </div>
+      <div style="background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Kichonge, Baraka</b><span style="background:rgba(59,130,246,0.15);color:#3B82F6;padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 11</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">Nelson Mandela African Inst.</div>
+        <div style="font-size:.78rem;color:#3B82F6;border-top:1px solid rgba(59,130,246,0.15);padding-top:.6rem;font-weight:600">Solar energy, hybrid systems</div>
+      </div>
+      <div style="background:rgba(59,130,246,0.05);border:1px solid rgba(59,130,246,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Monko, Rehema J.</b><span style="background:rgba(59,130,246,0.15);color:#3B82F6;padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 3</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">Ardhi University</div>
+        <div style="font-size:.78rem;color:#3B82F6;border-top:1px solid rgba(59,130,246,0.15);padding-top:.6rem;font-weight:600">Energy resource management</div>
+      </div>
+    </div>
+
+    <div id="tz-tourism" class="tz-tab-content">
+      <div style="background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Amani, David</b><span style="background:rgba(245,158,11,0.15);color:#F59E0B;padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 9</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">University of Dodoma</div>
+        <div style="font-size:.78rem;color:#F59E0B;border-top:1px solid rgba(245,158,11,0.15);padding-top:.6rem;font-weight:600">Destination management, sustainable tourism</div>
+      </div>
+      <div style="background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Mpambije, Chakupewa J.</b><span style="background:rgba(245,158,11,0.15);color:#F59E0B;padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 6</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">University of Dar es Salaam</div>
+        <div style="font-size:.78rem;color:#F59E0B;border-top:1px solid rgba(245,158,11,0.15);padding-top:.6rem;font-weight:600">Cultural tourism, heritage preservation</div>
+      </div>
+      <div style="background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.2);border-radius:12px;padding:1.2rem">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem"><b style="color:var(--text)">Kimambo, Gerald E.</b><span style="background:rgba(245,158,11,0.15);color:#F59E0B;padding:3px 8px;border-radius:6px;font-size:.7rem;font-weight:700;white-space:nowrap;"><i>h</i>-index 3</span></div>
+        <div style="font-size:.75rem;color:var(--muted);margin-bottom:.5rem;font-weight:500">University of Dar es Salaam</div>
+        <div style="font-size:.78rem;color:#F59E0B;border-top:1px solid rgba(245,158,11,0.15);padding-top:.6rem;font-weight:600">Tourism discourse, communications</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dcard" style="margin-top:0;background:var(--surface2);">
+    <h3>Most Cited Publications of 2025 (Top 3)</h3>
+    <div style="display:flex;flex-direction:column;gap:1rem">
+      <a href="https://doi.org/10.1021/acs.chemrev.4c00592" target="_blank" class="cit-link">
+        <div>
+          <span style="background:rgba(0,57,166,0.1);color:var(--accent);padding:4px 10px;border-radius:100px;font-size:.65rem;font-weight:700;border:1px solid rgba(0,57,166,0.2)">Natural Resources</span>
+          <div style="font-weight:700;color:var(--text);margin:.6rem 0 .4rem;font-size:.95rem">Selectivity in Chemiresistive Gas Sensors: Strategies and Challenges ↗</div>
+          <div style="font-size:.75rem;color:var(--muted);font-weight:600">Bulemo, Peresi Majura (University of Dar es Salaam)</div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">A fundamental review of strategies for improving the selectivity of gas sensors. Critically important for air monitoring systems in mines and ecologically disadvantaged areas.</div>
+        </div>
+        <div style="text-align:center;background:var(--bg);border:1px solid var(--border);padding:.85rem 1.2rem;border-radius:12px;flex-shrink:0">
+          <div style="font-family:'Unbounded',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent)">94</div>
+          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:700">Citations</div>
+        </div>
+      </a>
+      <a href="https://doi.org/10.1371/journal.pone.0315011" target="_blank" class="cit-link">
+        <div>
+          <span style="background:rgba(16,185,129,0.1);color:var(--accent2);padding:4px 10px;border-radius:100px;font-size:.65rem;font-weight:700;border:1px solid rgba(16,185,129,0.2)">Education / Innovations</span>
+          <div style="font-weight:700;color:var(--text);margin:.6rem 0 .4rem;font-size:.95rem">Higher education students' perceptions of ChatGPT: A global study of early reactions ↗</div>
+          <div style="font-size:.75rem;color:var(--muted);font-weight:600">Abdulla, Ali A.; Inasius, F. (University of Dodoma)</div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">A global study of students' adaptation to generative AI. Tanzanian scientists provided data collection and analysis for the East African region.</div>
+        </div>
+        <div style="text-align:center;background:var(--bg);border:1px solid var(--border);padding:.85rem 1.2rem;border-radius:12px;flex-shrink:0">
+          <div style="font-family:'Unbounded',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent)">60</div>
+          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:700">Citations</div>
+        </div>
+      </a>
+      <a href="https://doi.org/10.1016/j.jhepr.2024.101271" target="_blank" class="cit-link">
+        <div>
+          <span style="background:rgba(4,120,87,0.1);color:var(--accent2-dark);padding:4px 10px;border-radius:100px;font-size:.65rem;font-weight:700;border:1px solid rgba(4,120,87,0.2)">Medicine</span>
+          <div style="font-weight:700;color:var(--text);margin:.6rem 0 .4rem;font-size:.95rem">Global burden of metabolic dysfunction-associated steatotic liver disease, 2010 to 2021 ↗</div>
+          <div style="font-size:.75rem;color:var(--muted);font-weight:600">Al-Busafi, Said A. (Muhimbili National Hospital)</div>
+          <div style="font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5">A large-scale analysis of the spread of metabolic liver diseases (MASLD). Assessment of the disease burden in Sub-Saharan Africa.</div>
+        </div>
+        <div style="text-align:center;background:var(--bg);border:1px solid var(--border);padding:.85rem 1.2rem;border-radius:12px;flex-shrink:0">
+          <div style="font-family:'Unbounded',sans-serif;font-size:1.8rem;font-weight:800;color:var(--accent)">52</div>
+          <div style="font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:700">Citations</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="tab-rid" class="tab-section">
+  <div class="section-intro">
+    <div class="section-intro-label">Section 5 · Intellectual Property</div>
+    <h2>Results of Intellectual Activity (IP)</h2>
+    <p>Registration of intellectual property is a key indicator of the transition from fundamental research to the applied plane. Patents and software certificates not only protect the university's priority but also form the technological foundation for import substitution and commercialization of RUDN developments.</p>
+  </div>
+  <div class="section-title">Registration Results · 2026</div>
+  <div class="section-sub">January – February 2026</div>
+  <div class="rid-stats-grid">
+    <div class="rid-stat-card" style="background:rgba(0,57,166,0.05); border-color:var(--accent);">
+        <span class="rid-stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+        <span class="rid-stat-val">36</span>
+        <span class="rid-stat-lbl">Total Objects</span>
+    </div>
+    <div class="rid-stat-card">
+        <span class="rid-stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></svg></span>
+        <span class="rid-stat-val">3</span>
+        <span class="rid-stat-lbl">Inventions</span>
+    </div>
+    <div class="rid-stat-card">
+        <span class="rid-stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+        <span class="rid-stat-val">1</span>
+        <span class="rid-stat-lbl">Utility Models</span>
+    </div>
+    <div class="rid-stat-card">
+        <span class="rid-stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+        <span class="rid-stat-val">5</span>
+        <span class="rid-stat-lbl">Industrial Designs</span>
+    </div>
+    <div class="rid-stat-card">
+        <span class="rid-stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+        <span class="rid-stat-val">18</span>
+        <span class="rid-stat-lbl">Computer Programs</span>
+    </div>
+    <div class="rid-stat-card">
+        <span class="rid-stat-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+        <span class="rid-stat-val">9</span>
+        <span class="rid-stat-lbl">Databases</span>
+    </div>
+  </div>
+
+  <div class="section-title">Register of Intellectual Property</div>
+  <div class="filter-bar">
+    <input type="text" id="ridSearch" class="filter-input" placeholder="Search by title or author..." onkeyup="filterRidTable()">
+    <select id="ridTypeFilter" class="filter-select" onchange="filterRidTable()">
+        <option value="">All types</option>
+        <option value="Invention">Invention</option>
+        <option value="Utility Model">Utility Model</option>
+        <option value="Industrial Design">Industrial Design</option>
+        <option value="Computer Program">Computer Program</option>
+        <option value="Database">Database</option>
+    </select>
+  </div>
+  <div class="dcard" style="padding:1rem;">
+    <div class="table-wrap">
+      <table id="ridTable">
+        <thead>
+          <tr>
+            <th>Patent / Cert. No.</th>
+            <th>Type</th>
+            <th>Title</th>
+            <th>Authors / Department</th>
+            <th>Year</th>
+          </tr>
+        </thead>
+        <tbody id="rid-tbody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div style="color:rgba(255,255,255,0.75);font-size:.85rem;margin-bottom:0.6rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;">Center for Scientific Reputation Management</div>
+  <a href="mailto:scientometrics@rudn.ru" style="display:inline-flex;align-items:center;gap:6px;color:#ffffff;text-decoration:none;font-size:.9rem;font-weight:700;transition:opacity .2s;" onmouseover="this.style.opacity='.75'" onmouseout="this.style.opacity='1'">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    scientometrics@rudn.ru
+  </a>
+</footer>
+
+<button class="scroll-to-top" id="scrollTopBtn" title="Back to top">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="18 15 12 9 6 15"></polyline>
+  </svg>
+</button>
+
+</body>
+</html>
