@@ -496,3 +496,13 @@ body.dark .scroll-to-top {
     font-size: 5.3vw !important; 
   }
 }
+/* ===== ИСПРАВЛЕНИЕ РАЗРЫВА ЦИФР В ТАБЛИЦЕ НА МОБИЛЬНЫХ ===== */
+@media(max-width: 800px) {
+  td.metric-group {
+    justify-content: flex-end !important;
+    gap: 0.2rem !important; /* Убираем огромные пробелы между цифрами и слешем */
+  }
+  td.metric-group::before {
+    margin-right: auto; /* Жестко прижимаем название строки к левому краю */
+  }
+}
