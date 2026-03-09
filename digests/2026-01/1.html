@@ -62,28 +62,82 @@
 <main style="max-width: 1000px; margin: 0 auto; padding: 3rem 1.5rem;">
 
   <div class="section-title" style="margin-bottom: 1.5rem;">Важное за месяц: обзор главных новостей</div>
-  <div class="grid-responsive grid-cols-2">
-    <a href="https://t.me/RUDN_science/391" target="_blank" class="dcard news-link-card">
-      <div style="font-size: 0.7rem; color: var(--accent2); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Достижение</div>
-      <h3>В 2025 году исследования учёных РУДН опубликованы в ТОП-1% самых цитируемых журналов мира</h3>
-    </a>
-    <a href="https://www.rudn.ru/media/news/nauka/cifrovoy-slepok-zdorovya-uchenye-rudn-sozdali-sistemu-3d-analiza-chelovecheskogo-tela-dlya-mediciny-i-nauki" target="_blank" class="dcard news-link-card">
-      <div style="font-size: 0.7rem; color: var(--accent); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Разработка</div>
-      <h3>Исследователи РУДН разработали инновационную систему «Челомер» для создания высокоточных трёхмерных моделей лица за считанные секунды</h3>
-    </a>
-    <a href="https://www.rudn.ru/media/news/nauka/innovacionnaya-insulinovaya-pompa-ot-studenta-rudn-novyy-shag-v-pomoshchi-lyudyam-s-diabetom" target="_blank" class="dcard news-link-card">
-      <div style="font-size: 0.7rem; color: var(--accent); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Инновация</div>
-      <h3>Студент ИМЭБ РУДН Владимир Мишаткин с командой создал прототип беспроводной инсулиновой помпы с функцией Bluetooth</h3>
-    </a>
-    <a href="https://www.rudn.ru/media/news/nauka/bez-himreagentov-i-vreda-prirode-aspirantka-rudn-razrabotala-zelenyy-metod-uluchsheniya-kachestva-lekarstvennyh-veshchestv" target="_blank" class="dcard news-link-card">
-      <div style="font-size: 0.7rem; color: var(--accent); margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Экология</div>
-      <h3>Аспирантка РУДН разработала «зелёный» метод улучшения качества лекарственных веществ</h3>
-    </a>
-    <a href="https://t.me/RUDNstudentslife/15199" target="_blank" class="dcard news-link-card">
-      <div style="font-size: 0.7rem; color: #ac61ae; margin-bottom: 0.4rem; text-transform: uppercase; font-weight: 700;">Праздник</div>
-      <h3>Об учёных и науке в РУДН ко Дню Российской науки и Международному дню женщин и девочек в науке</h3>
-    </a>
-  </div>
+
+<style>
+  .digest-section { margin-bottom: 2rem; }
+  .digest-section h3 { display: flex; align-items: center; gap: 8px; color: var(--accent); font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+  .digest-list { list-style: none; padding: 0; margin: 0; }
+  .digest-list > li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; line-height: 1.6; color: var(--text); background: var(--surface); padding: 1rem 1rem 1rem 2.5rem; border-radius: 12px; transition: transform 0.2s, box-shadow 0.2s; border: 1px solid var(--border); }
+  .digest-list > li:hover { transform: translateY(-2px); box-shadow: 0 4px 15px var(--shadow); border-color: var(--accent); }
+  .digest-list > li::before { content: '→'; position: absolute; left: 1rem; top: 1rem; color: var(--accent2); font-weight: bold; }
+  .digest-list a { color: var(--accent); text-decoration: none; font-weight: 600; transition: color 0.2s; }
+  .digest-list a:hover { color: var(--accent2); text-decoration: underline; }
+  .sub-list { list-style: none; padding-left: 0; margin-top: 0.8rem; border-top: 1px dashed var(--border); padding-top: 0.8rem; }
+  .sub-list li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; font-size: 0.95rem; }
+  .sub-list li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+</style>
+
+<div class="digest-section">
+  <p style="color: var(--muted); margin-bottom: 1.5rem; font-size: 1rem;">Наука в РУДН: подборка новостей, на случай если пропустили[cite: 1].</p>
+
+  <h3>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+    Публикации и научные релизы
+  </h3>
+  <ul class="digest-list">
+    <li>В 2025 году исследования учёных РУДН опубликованы в <a href="https://t.me/RUDN_science/391" target="_blank">ТОП-1% самых цитируемых журналов мира</a>[cite: 2].</li>
+    <li>Короткие научные релизы[cite: 3]:
+      <ul class="sub-list">
+        <li><a href="https://t.me/RUDN_science/596" target="_blank">Яков Кузяков</a> [cite: 4]</li>
+        <li><a href="https://t.me/RUDN_science/431" target="_blank">Анна Гунина</a> [cite: 5]</li>
+        <li><a href="https://t.me/RUDN_science/423" target="_blank">Кит Топпинг</a> [cite: 6]</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path><path d="M2 12h20"></path></svg>
+    Миссия учёных и устойчивое развитие
+  </h3>
+  <ul class="digest-list">
+    <li>О <a href="https://t.me/RUDN_science/446" target="_blank">миссии учёных в эпоху устойчивого развития</a>[cite: 10]:
+      <ul class="sub-list">
+        <li><a href="https://t.me/RUDN_science/518" target="_blank">Мария Жукова о «зелёной» политике организаций</a> [cite: 11]</li>
+        <li><a href="https://t.me/RUDN_science/521" target="_blank">Елизавета Могилёва об экосистемных услугах в контексте устойчивого развития</a> [cite: 12]</li>
+        <li><a href="https://t.me/RUDN_science/523" target="_blank">Евгений Башкин о драйверах психической активности и заботе о своем психическом здоровье</a> [cite: 13]</li>
+        <li><a href="https://t.me/RUDN_science/525" target="_blank">Анастасия Богоявленская об устойчивости бактерий к антибиотикам</a> [cite: 14]</li>
+        <li><a href="https://t.me/RUDN_science/527" target="_blank">Жанна Чупина о роли женщин в науке в современных реалиях</a> [cite: 15]</li>
+        <li><a href="https://t.me/RUDN_science/516" target="_blank">Вячеслав Тимощеня об организованной преступности, которая саботирует все 17 ЦУР</a> [cite: 16]</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+    Достижения, премии и рейтинги
+  </h3>
+  <ul class="digest-list">
+    <li><a href="https://t.me/RUDN_science/457" target="_blank">Поздравляем коллег из научного управления, получивших ведомственные награды</a>[cite: 20].</li>
+    <li><a href="https://www.rudn.ru/media/news/nauka/laureaty-premii-rudn-v-oblasti-nauki-i-innovaciy--2025-pozdravlyaem-vedushchih-i-molodyh-uchenyh-universiteta" target="_blank">Лауреаты премии РУДН в области науки и инноваций — 2025: поздравляем ведущих и молодых ученых университета!</a> [cite: 22] Лауреаты также <a href="https://t.me/RUDNstudentslife/15229" target="_blank">отвечают на «ненаучные» вопросы про науку</a>[cite: 23].</li>
+    <li>Благодарность ректора: студенты и наставники РУДН отмечены за выдающиеся достижения в 2025 году, читайте в <a href="https://t.me/RUDNstudentslife/15247" target="_blank">Telegram</a> и на <a href="https://www.rudn.ru/media/news/education/blagodarnost-rektora-studenty-i-nastavniki-rudn-otmecheny-za-vydayushchiesya-dostijeniya-v-2025-godu" target="_blank">сайте</a>[cite: 25].</li>
+    <li>Самые результативные: в РУДН подвели <a href="https://www.rudn.ru/media/news/nauka/samye-rezultativnye-v-rudn-podveli-itogi-reytinga-nauchno-pedagogicheskih-rabotnikov-za-2025-god" target="_blank">итоги рейтинга научно-педагогических работников за 2025 год</a>[cite: 27]. Подробнее[cite: 28]:
+      <ul class="sub-list">
+        <li><a href="https://t.me/RUDN_science/567" target="_blank">«Самые результативные научно-педагогические работники РУДН»</a> [cite: 29]</li>
+        <li><a href="https://t.me/RUDN_science/568" target="_blank">«Лидер по коммерциализации РИД»</a> [cite: 30]</li>
+        <li><a href="https://t.me/RUDN_science/572" target="_blank">«Лучший руководитель гранта»</a> [cite: 31]</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+    Наука и общество
+  </h3>
+  <ul class="digest-list">
+    <li>К Международному дню женщин и девочек в науке читайте <a href="https://t.me/RUDNstudentslife/15199" target="_blank">первую</a> и <a href="https://t.me/RUDNstudentslife/15206" target="_blank">вторую часть</a> материала[cite: 8].</li>
+    <li><a href="https://t.me/RUDNstudentslife/15157" target="_blank">Мифы о науке: ответ ученых РУДН</a>[cite: 18].</li>
+  </ul>
+</div>
 
   <div class="dashboard-promo">
     <div style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.75rem; font-weight: 700; color: #60A5FA; margin-bottom: 1rem;">Специальное приложение</div>
